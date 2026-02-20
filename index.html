@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Milele, un outil pour alléger le cœur et redonner de la lumière dans les moments sombres, car rien n'est éternel ici-bas sauf la trace que nous laissons.">
   <title>Milele - Éternité</title>
   <style>
     body {
@@ -65,9 +66,9 @@
     .milele-highlight {
       font-style: italic;
       color: #FFD700; /* Jaune vif pour surbrillance */
-      font-size: 1.3em; /* Augmenté pour évidence */
+      font-size: 1.3em;
       margin: 20px 0;
-      text-shadow: 0 0 5px #FFD700; /* Effet glow subtil pour mettre en évidence */
+      text-shadow: 0 0 5px #FFD700; /* Effet glow subtil */
     }
     .flower {
       width: 150px;
@@ -75,12 +76,36 @@
       margin: 20px auto;
       opacity: 0;
       transform: scale(0.5);
-      animation: openFlower 3s ease-in-out forwards;
+      animation: openFlower 4s ease-out forwards; /* Amélioration : durée à 4s, easing ease-out pour plus de naturel, moins rotatif */
       display: block;
     }
     @keyframes openFlower {
       0% { opacity: 0; transform: scale(0.5) rotate(0deg); }
+      50% { opacity: 0.5; transform: scale(0.8) rotate(180deg); } /* Étape intermédiaire pour un ouverture progressive plus fluide */
       100% { opacity: 1; transform: scale(1) rotate(360deg); }
+    }
+    /* Optimisation mobile : suggestions implémentées */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        padding: 10px;
+      }
+      nav {
+        margin-top: 10px;
+      }
+      .content {
+        padding: 20px;
+      }
+      .content p {
+        font-size: 0.9em;
+      }
+      h1, h2 {
+        font-size: 1.2em;
+      }
+      .flower {
+        width: 120px;
+        height: 120px;
+      }
     }
   </style>
 </head>
@@ -88,20 +113,20 @@
   <header>
     <div class="logo">ETERNITY</div>
     <nav>
-      <a href="#">ABOUT</a>
-      <a href="#">MORE ABOUT US</a>
-      <a href="#" class="abonnez-vous">Abonnez-vous</a>
+      <a href="#about" aria-label="Aller à la section About">ABOUT</a>
+      <a href="#more" aria-label="Aller à la section More About Us">MORE ABOUT US</a>
+      <a href="#newsletter" class="abonnez-vous" aria-label="S'abonner à la newsletter">Abonnez-vous</a>
     </nav>
   </header>
   <div class="content">
-    <svg class="flower" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <svg class="flower" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" alt="Fleur symbolisant l'éternité">
       <circle cx="50" cy="50" r="10" fill="#FFD700" />
       <ellipse cx="50" cy="50" rx="20" ry="40" fill="#98FB98" transform="rotate(0 50 50)" />
       <ellipse cx="50" cy="50" rx="20" ry="40" fill="#98FB98" transform="rotate(45 50 50)" />
       <ellipse cx="50" cy="50" rx="20" ry="40" fill="#98FB98" transform="rotate(90 50 50)" />
       <ellipse cx="50" cy="50" rx="20" ry="40" fill="#98FB98" transform="rotate(135 50 50)" />
     </svg>
-    <h2>ABOUT</h2>
+    <h2 id="about">ABOUT</h2>
     <p>Dans la vie, certaines choses échappent à toute explication.</p>
     <p>Elles se vivent, simplement, et s’inscrivent dans notre mémoire, qu’elles soient douces ou douloureuses.</p>
     <p>Parfois, il suffit d’une main tendue, d’un regard bienveillant,</p>
@@ -113,7 +138,7 @@
     <p>La fontaine de jouvence n’existe pas.</p>
     <p>Nous sommes tous de passage,</p>
     <p>et c’est la trace que nous laissons dans le cœur des autres</p>
-    <p>qui devient notre véritable héritage.</p> <!-- Espace ajouté après "héritage" (line break pour pause visuelle) -->
+    <p>qui devient notre véritable héritage.</p>
     <p class="milele-highlight">MILELE (MOT SWAHILI SIGNIFIANT "ÉTERNITÉ")</p>
     <p>Parce que certaines choses dans la vie ne s'expliquent pas...</p>
     <p>Milele est là pour alléger le cœur, apaiser le poids des circonstances</p>
