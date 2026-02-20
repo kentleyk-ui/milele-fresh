@@ -13,14 +13,23 @@
       color: #333;
       padding: 0;
       box-sizing: border-box;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    body.dark {
+      background-color: #000;
+      color: #fff;
     }
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: #000; /* Fond noir du screenshot */
+      background-color: #000;
       padding: 10px 20px;
       color: #fff;
+      transition: background-color 0.3s;
+    }
+    body.dark header {
+      background-color: #333;
     }
     .logo {
       font-size: 1.5em;
@@ -38,7 +47,7 @@
       font-size: 1em;
     }
     nav .abonnez-vous {
-      background-color: #FFD700; /* Jaune du screenshot */
+      background-color: #FFD700;
       color: #000;
       padding: 5px 10px;
       border-radius: 5px;
@@ -47,12 +56,17 @@
     .content {
       padding: 40px;
       text-align: center;
-      background-color: #000; /* Fond noir du screenshot */
+      background-color: #000;
       color: #fff;
       min-height: calc(100vh - 60px);
+      transition: background-color 0.3s, color 0.3s;
+    }
+    body.dark .content {
+      background-color: #111;
+      color: #ddd;
     }
     .content h2 {
-      color: #FFD700; /* Jaune du screenshot */
+      color: #FFD700;
       font-size: 1.5em;
       margin-bottom: 20px;
     }
@@ -61,14 +75,14 @@
       line-height: 1.5;
       max-width: 800px;
       margin: 5px auto;
-      text-align: left; /* Aligné à gauche du screenshot */
+      text-align: left;
     }
     .milele-highlight {
       font-style: italic;
-      color: #FFD700; /* Jaune vif pour surbrillance */
+      color: #FFD700;
       font-size: 1.3em;
       margin: 20px 0;
-      text-shadow: 0 0 5px #FFD700; /* Effet glow subtil */
+      text-shadow: 0 0 5px #FFD700;
     }
     .flower {
       width: 150px;
@@ -76,15 +90,45 @@
       margin: 20px auto;
       opacity: 0;
       transform: scale(0.5);
-      animation: openFlower 4s ease-out forwards; /* Amélioration : durée à 4s, easing ease-out pour plus de naturel, moins rotatif */
+      animation: openFlower 4s ease-out forwards;
       display: block;
     }
     @keyframes openFlower {
       0% { opacity: 0; transform: scale(0.5) rotate(0deg); }
-      50% { opacity: 0.5; transform: scale(0.8) rotate(180deg); } /* Étape intermédiaire pour un ouverture progressive plus fluide */
+      50% { opacity: 0.5; transform: scale(0.8) rotate(180deg); }
       100% { opacity: 1; transform: scale(1) rotate(360deg); }
     }
-    /* Optimisation mobile : suggestions implémentées */
+    .mode-switch {
+      background-color: #2E7D32;
+      color: #E8F5E9;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 10px;
+      font-size: 0.9em;
+      transition: background-color 0.3s;
+    }
+    .mode-switch:hover {
+      background-color: #98FB98;
+      color: #2E7D32;
+    }
+    .language-switch {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      z-index: 1000;
+      font-size: 0.9em;
+    }
+    .language-switch a {
+      color: #2E7D32;
+      text-decoration: none;
+      margin-right: 10px;
+      transition: color 0.3s;
+    }
+    .language-switch a:hover {
+      color: #98FB98;
+    }
     @media (max-width: 768px) {
       header {
         flex-direction: column;
@@ -98,9 +142,6 @@
       }
       .content p {
         font-size: 0.9em;
-      }
-      h1, h2 {
-        font-size: 1.2em;
       }
       .flower {
         width: 120px;
@@ -116,6 +157,7 @@
       <a href="#about" aria-label="Aller à la section About">ABOUT</a>
       <a href="#more" aria-label="Aller à la section More About Us">MORE ABOUT US</a>
       <a href="#newsletter" class="abonnez-vous" aria-label="S'abonner à la newsletter">Abonnez-vous</a>
+      <button class="mode-switch" onclick="toggleMode()">Mode Sombre</button>
     </nav>
   </header>
   <div class="content">
@@ -139,10 +181,41 @@
     <p>Nous sommes tous de passage,</p>
     <p>et c’est la trace que nous laissons dans le cœur des autres</p>
     <p>qui devient notre véritable héritage.</p>
+    <br><br><br><br> <!-- Espace ajouté : 4 lignes vides après héritage, pour pause visuelle et évidence -->
     <p class="milele-highlight">MILELE (MOT SWAHILI SIGNIFIANT "ÉTERNITÉ")</p>
     <p>Parce que certaines choses dans la vie ne s'expliquent pas...</p>
     <p>Milele est là pour alléger le cœur, apaiser le poids des circonstances</p>
     <p>et laisser dans le cœur des autres une trace qui ne s'efface pas.</p>
   </div>
+
+  <div class="language-switch">
+    <a href="#" onclick="changeLanguage('fr')" aria-label="Changer à français">FR</a>
+    <a href="#" onclick="changeLanguage('en')" aria-label="Changer à anglais">EN</a>
+  </div>
+
+  <script>
+    function toggleMode() {
+      const body = document.body;
+      body.classList.toggle('dark');
+      const button = document.querySelector('.mode-switch');
+      button.textContent = body.classList.contains('dark') ? 'Mode Lumineux' : 'Mode Sombre';
+      localStorage.setItem('darkMode', body.classList.contains('dark') ? 'true' : 'false');
+    }
+    if (localStorage.getItem('darkMode') === 'true') {
+      toggleMode();
+    }
+
+    // Switch langue FR/EN
+    function changeLanguage(lang) {
+      localStorage.setItem('language', lang);
+      location.reload(); // Rafraîchit pour appliquer (en production, on pourrait charger dynamiquement le texte)
+    }
+    // Example pour EN (ajoute un data-lang à chaque p, et switch via JS - ici placeholder, complète avec texte EN si besoin)
+    // Pour test, ajoutez data-lang="fr" aux p, et un set pour EN.
+    if (localStorage.getItem('language') === 'en') {
+      // Placeholder : change text to English
+      document.querySelectorAll('p').forEach(p => p.textContent = p.textContent.replace('Dans la vie', 'In life') /* Ajoute tes traductions ici */);
+    }
+  </script>
 </body>
 </html>
