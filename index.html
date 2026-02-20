@@ -5,14 +5,65 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Milele - Éternité</title>
   <style>
-    body { margin: 0; height: 100vh; background-color: #E8F5E9; font-family: Arial, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #333; }
-    h1 { font-size: 3em; color: #2E7D32; }
-    p { font-size: 1.5em; text-align: center; max-width: 600px; }
+    body {
+      margin: 0;
+      height: 100vh;
+      background-color: #E8F5E9; /* Vert feuille pâle */
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #333;
+    }
+    h1 {
+      font-size: 3em;
+      color: #2E7D32; /* Vert plus foncé */
+    }
+    p {
+      font-size: 1.5em;
+      text-align: center;
+      max-width: 600px;
+    }
+    .flower {
+      width: 150px;
+      height: 150px;
+      margin-bottom: 20px;
+      opacity: 0;
+      transform: scale(0.5);
+      animation: openFlower 3s ease-in-out forwards;
+    }
+    @keyframes openFlower {
+      0% { opacity: 0; transform: scale(0.5) rotate(0deg); }
+      100% { opacity: 1; transform: scale(1) rotate(360deg); }
+    }
   </style>
 </head>
 <body>
+  <svg class="flower" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <!-- Fleur simple : centre et pétales -->
+    <circle cx="50" cy="50" r="10" fill="#FFD700" /> <!-- Centre jaune -->
+    <ellipse cx="50" cy="50" rx="20" ry="40" fill="#98FB98" transform="rotate(0 50 50)" /> <!-- Pétale 1 -->
+    <ellipse cx="50" cy="50" rx="20" ry="40" fill="#98FB98" transform="rotate(45 50 50)" /> <!-- Pétale 2 -->
+    <ellipse cx="50" cy="50" rx="20" ry="40" fill="#98FB98" transform="rotate(90 50 50)" /> <!-- Pétale 3 -->
+    <ellipse cx="50" cy="50" rx="20" ry="40" fill="#98FB98" transform="rotate(135 50 50)" /> <!-- Pétale 4 -->
+  </svg>
   <h1>Milele</h1>
-  <p>Je reste. T'es assez. Respire.</p>
-  <p>(On va ajouter la fleur qui s'ouvre et les phrases qui changent bientôt...)</p>
+  <p id="random-phrase">Je reste. T'es assez. Respire.</p>
+  <p>(La fleur s'ouvre au chargement et les phrases changent au rafraîchissement.)</p>
+
+  <script>
+    const phrases = [
+      "Je reste.",
+      "T'es assez.",
+      "Respire.",
+      "L'éternité commence ici.",
+      "Tu fais briller tout autour de toi.",
+      "Garde ce cœur d'enfant.",
+      "Je suis là, pour toujours."
+    ];
+    const randomIndex = Math.floor(Math.random() * phrases.length);
+    document.getElementById("random-phrase").textContent = phrases[randomIndex];
+  </script>
 </body>
 </html>
