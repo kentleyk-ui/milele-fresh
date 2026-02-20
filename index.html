@@ -14,6 +14,7 @@
       padding: 0;
       box-sizing: border-box;
       transition: background-color 0.3s, color 0.3s;
+      scroll-behavior: smooth; /* Scroll smooth ajouté pour navigation fluide */
     }
     body.dark {
       background-color: #000;
@@ -55,7 +56,7 @@
     .content {
       padding: 40px;
       text-align: center;
-      background-color: transparent; /* Transparent en lumineux pour vert dominant */
+      background-color: transparent;
       color: #333;
       min-height: calc(100vh - 60px);
       transition: background-color 0.3s, color 0.3s;
@@ -106,7 +107,7 @@
     }
     .menu button {
       padding: 10px 20px;
-      background-color: #98FB98; /* Vert clair pour boutons */
+      background-color: #98FB98;
       border: none;
       border-radius: 5px;
       color: #2E7D32;
@@ -176,6 +177,16 @@
     .language-switch a:hover {
       color: #98FB98;
     }
+    footer {
+      font-size: 0.8em;
+      text-align: center;
+      padding: 10px;
+      color: #2E7D32;
+      transition: color 0.3s;
+    }
+    body.dark footer {
+      color: #98FB98;
+    }
     @media (max-width: 768px) {
       header {
         flex-direction: column;
@@ -236,12 +247,36 @@
     <p>Parce que certaines choses dans la vie ne s'expliquent pas...</p>
     <p>Milele est là pour alléger le cœur, apaiser le poids des circonstances</p>
     <p>et laisser dans le cœur des autres une trace qui ne s'efface pas.</p>
+    <div class="menu">
+      <button onclick="location.href='je-respire.html'">Je respire</button> <!-- Lien vers page séparée -->
+      <button onclick="location.href='je-parle.html'">Je parle</button> <!-- Lien vers page séparée -->
+      <button onclick="location.href='je-me-souviens.html'">Je me souviens</button> <!-- Lien vers page séparée */
+    </div>
+    <h2 id="more">MORE ABOUT US</h2>
+    <p>Milele est inspiré par une vie de souvenirs et de générosité, héritée d'une mère exceptionnelle qui enseignait la sagesse et le sourire éternel.</p>
+    <p>Nous construisons cet outil pour aider les gens en deuil à trouver paix et lumière, comme elle l'aurait voulu.</p>
+    <p>(Personnalisez ce placeholder avec plus de détails sur vous ou le projet).</p>
+    <h2 id="newsletter">Abonnez-vous</h2>
+    <div class="newsletter">
+      <div id="mc_embed_signup">
+        <form action="https://yourusername.us21.list-manage.com/subscribe/post?u=your-u-id&id=your-list-id" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+          <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Ton email" required>
+          <input type="text" value="" name="FNAME" class="" id="mce-FNAME" placeholder="Nom" required>
+          <input type="text" value="" name="LNAME" class="" id="mce-LNAME" placeholder="Site web">
+          <!-- Anti-spam -->
+          <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_your-u-id_your-list-id" tabindex="-1" value=""></div>
+          <button type="submit" name="subscribe" id="mc-embedded-subscribe">S'abonner</button>
+        </form>
+      </div>
+    </div>
   </div>
 
   <div class="language-switch">
     <a href="#" onclick="changeLanguage('fr')" aria-label="Changer à français">FR</a>
     <a href="#" onclick="changeLanguage('en')" aria-label="Changer à anglais">EN</a>
   </div>
+
+  <footer>Milele 4ever © 2026 – Propulsé par Cloudflare</footer>
 
   <script>
     function toggleMode() {
@@ -260,9 +295,9 @@
       location.reload();
     }
     if (localStorage.getItem('language') === 'en') {
-      // Placeholder traductions EN - ajoutez les vôtres
+      // Placeholder traductions EN
       document.querySelector('.logo').textContent = 'ETERNITY';
-      // ... Ajoutez pour chaque p/h2
+      // Ajoutez pour chaque p/h2/button
     }
   </script>
 </body>
