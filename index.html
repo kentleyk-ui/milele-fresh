@@ -7,7 +7,7 @@
   <style>
     body {
       margin: 0;
-      background-color: #E8F5E9; /* Vert feuille pâle conservé de la nouvelle page */
+      background-color: #E8F5E9; /* Vert feuille pâle conservé */
       font-family: Arial, sans-serif;
       color: #333;
       padding: 0;
@@ -17,14 +17,14 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: #000; /* Fond noir pour matcher la structure du screenshot */
+      background-color: #000; /* Fond noir du screenshot */
       padding: 10px 20px;
       color: #fff;
     }
     .logo {
       font-size: 1.5em;
       font-weight: bold;
-      color: #fff; /* Blanc pour ETERNITY */
+      color: #fff;
     }
     nav {
       display: flex;
@@ -37,7 +37,7 @@
       font-size: 1em;
     }
     nav .abonnez-vous {
-      background-color: #FFD700; /* Jaune pour matcher le bouton Abonnez-vous du screenshot */
+      background-color: #FFD700; /* Jaune du screenshot */
       color: #000;
       padding: 5px 10px;
       border-radius: 5px;
@@ -46,12 +46,12 @@
     .content {
       padding: 40px;
       text-align: center;
-      background-color: #000; /* Fond noir pour le contenu principal, comme dans le screenshot */
+      background-color: #000; /* Fond noir du screenshot */
       color: #fff;
-      min-height: calc(100vh - 60px); /* Ajuste pour matcher la mise en page pleine écran */
+      min-height: calc(100vh - 60px);
     }
     .content h2 {
-      color: #FFD700; /* Jaune pour les headers comme ABOUT */
+      color: #FFD700; /* Jaune du screenshot */
       font-size: 1.5em;
       margin-bottom: 20px;
     }
@@ -60,7 +60,14 @@
       line-height: 1.5;
       max-width: 800px;
       margin: 5px auto;
-      text-align: left; /* Aligné à gauche pour matcher la forme ligne par ligne du screenshot */
+      text-align: left; /* Aligné à gauche du screenshot */
+    }
+    .milele-highlight {
+      font-style: italic;
+      color: #FFD700; /* Jaune vif pour surbrillance */
+      font-size: 1.3em; /* Augmenté pour évidence */
+      margin: 20px 0;
+      text-shadow: 0 0 5px #FFD700; /* Effet glow subtil pour mettre en évidence */
     }
     .flower {
       width: 150px;
@@ -69,7 +76,7 @@
       opacity: 0;
       transform: scale(0.5);
       animation: openFlower 3s ease-in-out forwards;
-      display: block; /* Pour centrer la fleur */
+      display: block;
     }
     @keyframes openFlower {
       0% { opacity: 0; transform: scale(0.5) rotate(0deg); }
@@ -83,11 +90,11 @@
     <nav>
       <a href="#">ABOUT</a>
       <a href="#">MORE ABOUT US</a>
-      <a href="#" class="abonnez-vous">Abonnez-vous</a> <!-- Bouton Abonnez-vous exactement comme sur la page : jaune, dans le menu droit -->
+      <a href="#" class="abonnez-vous">Abonnez-vous</a>
     </nav>
   </header>
   <div class="content">
-    <svg class="flower" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"> <!-- Fleur située après le titre Eternity (après header) -->
+    <svg class="flower" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
       <circle cx="50" cy="50" r="10" fill="#FFD700" />
       <ellipse cx="50" cy="50" rx="20" ry="40" fill="#98FB98" transform="rotate(0 50 50)" />
       <ellipse cx="50" cy="50" rx="20" ry="40" fill="#98FB98" transform="rotate(45 50 50)" />
@@ -106,7 +113,11 @@
     <p>La fontaine de jouvence n’existe pas.</p>
     <p>Nous sommes tous de passage,</p>
     <p>et c’est la trace que nous laissons dans le cœur des autres</p>
-    <p>qui devient notre véritable héritage.</p>
+    <p>qui devient notre véritable héritage.</p> <!-- Espace ajouté après "héritage" (line break pour pause visuelle) -->
+    <p class="milele-highlight">MILELE (MOT SWAHILI SIGNIFIANT "ÉTERNITÉ")</p>
+    <p>Parce que certaines choses dans la vie ne s'expliquent pas...</p>
+    <p>Milele est là pour alléger le cœur, apaiser le poids des circonstances</p>
+    <p>et laisser dans le cœur des autres une trace qui ne s'efface pas.</p>
   </div>
 </body>
 </html>
