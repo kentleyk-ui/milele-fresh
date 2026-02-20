@@ -14,7 +14,7 @@
       padding: 0;
       box-sizing: border-box;
       transition: background-color 0.3s, color 0.3s;
-      scroll-behavior: smooth; /* Scroll smooth ajouté pour navigation fluide */
+      scroll-behavior: smooth;
     }
     body.dark {
       background-color: #000;
@@ -24,13 +24,13 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: #98FB98; /* Vert clair lumineux pour header en mode lumineux */
+      background: linear-gradient(to bottom, #98FB98, #E8F5E9); /* Dégradé vert clair à pâle pour mode lumineux */
       padding: 10px 20px;
       color: #333;
-      transition: background-color 0.3s, color 0.3s;
+      transition: background 0.3s, color 0.3s;
     }
     body.dark header {
-      background-color: #333;
+      background: linear-gradient(to bottom, #333, #000); /* Dégradé gris à noir pour mode sombre */
       color: #fff;
     }
     .logo {
@@ -56,13 +56,13 @@
     .content {
       padding: 40px;
       text-align: center;
-      background-color: transparent;
+      background: linear-gradient(to bottom, #E8F5E9, #E8F5E9); /* Dégradé subtil vert pâle pour mode lumineux */
       color: #333;
       min-height: calc(100vh - 60px);
-      transition: background-color 0.3s, color 0.3s;
+      transition: background 0.3s, color 0.3s;
     }
     body.dark .content {
-      background-color: #111;
+      background: linear-gradient(to bottom, #111, #000); /* Dégradé sombre pour mode sombre */
       color: #ddd;
     }
     .content h2 {
@@ -248,9 +248,9 @@
     <p>Milele est là pour alléger le cœur, apaiser le poids des circonstances</p>
     <p>et laisser dans le cœur des autres une trace qui ne s'efface pas.</p>
     <div class="menu">
-      <button onclick="location.href='je-respire.html'">Je respire</button> <!-- Lien vers page séparée -->
-      <button onclick="location.href='je-parle.html'">Je parle</button> <!-- Lien vers page séparée -->
-      <button onclick="location.href='je-me-souviens.html'">Je me souviens</button> <!-- Lien vers page séparée */
+      <button onclick="location.href='je-respire.html'">Je respire</button>
+      <button onclick="location.href='je-parle.html'">Je parle</button>
+      <button onclick="location.href='je-me-souviens.html'">Je me souviens</button>
     </div>
     <h2 id="more">MORE ABOUT US</h2>
     <p>Milele est inspiré par une vie de souvenirs et de générosité, héritée d'une mère exceptionnelle qui enseignait la sagesse et le sourire éternel.</p>
@@ -263,7 +263,6 @@
           <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Ton email" required>
           <input type="text" value="" name="FNAME" class="" id="mce-FNAME" placeholder="Nom" required>
           <input type="text" value="" name="LNAME" class="" id="mce-LNAME" placeholder="Site web">
-          <!-- Anti-spam -->
           <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_your-u-id_your-list-id" tabindex="-1" value=""></div>
           <button type="submit" name="subscribe" id="mc-embedded-subscribe">S'abonner</button>
         </form>
