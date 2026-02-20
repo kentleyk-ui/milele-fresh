@@ -7,93 +7,106 @@
   <style>
     body {
       margin: 0;
-      height: 100vh;
-      background-color: #E8F5E9; /* Vert feuille pâle conservé */
+      background-color: #E8F5E9; /* Vert feuille pâle conservé de la nouvelle page */
       font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
       color: #333;
-      padding: 20px;
+      padding: 0;
       box-sizing: border-box;
     }
-    h1 {
-      font-size: 3em;
-      color: #2E7D32; /* Vert plus foncé conservé */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #000; /* Fond noir pour matcher la structure du screenshot */
+      padding: 10px 20px;
+      color: #fff;
     }
-    p {
+    .logo {
       font-size: 1.5em;
+      font-weight: bold;
+      color: #fff; /* Blanc pour ETERNITY */
+    }
+    nav {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1em;
+    }
+    nav .abonnez-vous {
+      background-color: #FFD700; /* Jaune pour matcher le bouton Abonnez-vous du screenshot */
+      color: #000;
+      padding: 5px 10px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+    .content {
+      padding: 40px;
       text-align: center;
-      max-width: 600px;
-      margin: 10px 0;
+      background-color: #000; /* Fond noir pour le contenu principal, comme dans le screenshot */
+      color: #fff;
+      min-height: calc(100vh - 60px); /* Ajuste pour matcher la mise en page pleine écran */
+    }
+    .content h2 {
+      color: #FFD700; /* Jaune pour les headers comme ABOUT */
+      font-size: 1.5em;
+      margin-bottom: 20px;
+    }
+    .content p {
+      font-size: 1em;
+      line-height: 1.5;
+      max-width: 800px;
+      margin: 5px auto;
+      text-align: left; /* Aligné à gauche pour matcher la forme ligne par ligne du screenshot */
     }
     .flower {
       width: 150px;
       height: 150px;
-      margin-bottom: 20px;
+      margin: 20px auto;
       opacity: 0;
       transform: scale(0.5);
       animation: openFlower 3s ease-in-out forwards;
+      display: block; /* Pour centrer la fleur */
     }
     @keyframes openFlower {
       0% { opacity: 0; transform: scale(0.5) rotate(0deg); }
       100% { opacity: 1; transform: scale(1) rotate(360deg); }
     }
-    .newsletter {
-      margin: 20px 0;
-      text-align: center;
-    }
-    .newsletter input {
-      padding: 10px;
-      width: 250px;
-      border: 1px solid #2E7D32;
-      border-radius: 5px;
-    }
-    .newsletter button {
-      padding: 10px 20px;
-      background-color: #2E7D32;
-      color: #E8F5E9;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
   </style>
 </head>
 <body>
-  <svg class="flower" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-    <!-- Fleur simple conservée : centre et pétales -->
-    <circle cx="50" cy="50" r="10" fill="#FFD700" /> <!-- Centre jaune -->
-    <ellipse cx="50" cy="50" rx="20" ry="40" fill="#98FB98" transform="rotate(0 50 50)" /> <!-- Pétale 1 -->
-    <ellipse cx="50" cy="50" rx="20" ry="40" fill="#98FB98" transform="rotate(45 50 50)" /> <!-- Pétale 2 -->
-    <ellipse cx="50" cy="50" rx="20" ry="40" fill="#98FB98" transform="rotate(90 50 50)" /> <!-- Pétale 3 -->
-    <ellipse cx="50" cy="50" rx="20" ry="40" fill="#98FB98" transform="rotate(135 50 50)" /> <!-- Pétale 4 -->
-  </svg>
-  <h1>Eternity – Milele 4ever</h1>
-  <p id="random-phrase">Je reste. T'es assez. Respire.</p> <!-- Phrases aléatoires conservées -->
-  <p>Dans la vie, certaines choses échappent à toute explication. Elles se vivent, simplement… et s’inscrivent dans notre mémoire, qu’elles soient douces ou douloureuses.</p>
-  <p>Milele est un outil conçu pour nous aider à alléger le cœur et le poids des circonstances, à redonner un souffle de lumière dans les moments les plus sombres.</p>
-  <p>La trace que nous laissons dans le cœur des autres qui devient notre véritable héritage.</p>
-
-  <div class="newsletter">
-    <form action="#" method="post"> <!-- Structure newsletter du WordPress, remplace "#" par ton endpoint réel (ex. Mailchimp) -->
-      <input type="email" placeholder="Ton email pour la newsletter" required>
-      <button type="submit">S'abonner</button>
-    </form>
+  <header>
+    <div class="logo">ETERNITY</div>
+    <nav>
+      <a href="#">ABOUT</a>
+      <a href="#">MORE ABOUT US</a>
+      <a href="#" class="abonnez-vous">Abonnez-vous</a> <!-- Bouton Abonnez-vous exactement comme sur la page : jaune, dans le menu droit -->
+    </nav>
+  </header>
+  <div class="content">
+    <svg class="flower" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"> <!-- Fleur située après le titre Eternity (après header) -->
+      <circle cx="50" cy="50" r="10" fill="#FFD700" />
+      <ellipse cx="50" cy="50" rx="20" ry="40" fill="#98FB98" transform="rotate(0 50 50)" />
+      <ellipse cx="50" cy="50" rx="20" ry="40" fill="#98FB98" transform="rotate(45 50 50)" />
+      <ellipse cx="50" cy="50" rx="20" ry="40" fill="#98FB98" transform="rotate(90 50 50)" />
+      <ellipse cx="50" cy="50" rx="20" ry="40" fill="#98FB98" transform="rotate(135 50 50)" />
+    </svg>
+    <h2>ABOUT</h2>
+    <p>Dans la vie, certaines choses échappent à toute explication.</p>
+    <p>Elles se vivent, simplement, et s’inscrivent dans notre mémoire, qu’elles soient douces ou douloureuses.</p>
+    <p>Parfois, il suffit d’une main tendue, d’un regard bienveillant,</p>
+    <p>pour alléger le cœur et apaiser le poids des circonstances.</p>
+    <p>Milele est un outil conçu pour nous aider à alléger le cœur et le poids des circonstances,</p>
+    <p>à redonner un souffle de lumière dans les moments les plus sombres.</p>
+    <p>Tout être humain, un jour, de près ou de loin, a perdu un être cher.</p>
+    <p>C’est le rappel silencieux que rien n’est éternel ici-bas.</p>
+    <p>La fontaine de jouvence n’existe pas.</p>
+    <p>Nous sommes tous de passage,</p>
+    <p>et c’est la trace que nous laissons dans le cœur des autres</p>
+    <p>qui devient notre véritable héritage.</p>
   </div>
-
-  <script>
-    const phrases = [
-      "Je reste.",
-      "T'es assez.",
-      "Respire.",
-      "L'éternité commence ici.",
-      "Tu fais briller tout autour de toi.",
-      "Garde ce cœur d'enfant.",
-      "Je suis là, pour toujours."
-    ];
-    const randomIndex = Math.floor(Math.random() * phrases.length);
-    document.getElementById("random-phrase").textContent = phrases[randomIndex];
-  </script>
 </body>
 </html>
